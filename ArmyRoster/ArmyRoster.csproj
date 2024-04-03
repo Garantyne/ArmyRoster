@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resource\CreateArmy.png" />
+    <None Remove="Resource\Fon.png" />
+    <None Remove="Resource\MyArmy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resource\CreateArmy.png" />
+    <Resource Include="Resource\Fon.png" />
+    <Resource Include="Resource\MyArmy.png" />
+  </ItemGroup>
+
+</Project>

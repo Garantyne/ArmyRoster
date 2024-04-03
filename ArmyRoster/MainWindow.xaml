@@ -1,0 +1,27 @@
+﻿<Window x:Class="ArmyRoster.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArmyRoster"
+        mc:Ignorable="d"
+        Title="ArmyRoster" Height="650" Width="1000">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Source="Resource/Fon.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="SlateGray" Click="newArmyButton_Click"/>
+        <Image Source="Resource/MyArmy.png" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Button x:Name="exit" Content="Выход" Margin="100,175,100,25" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="DarkKhaki"/>
+        <Image Source="Resource/Fon.png" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Image Source="Resource/MyArmy.png" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,175,100,25" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="DarkKhaki"/>
+    </Grid>
+</Window>
