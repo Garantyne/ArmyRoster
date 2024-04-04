@@ -1,0 +1,18 @@
+﻿<Window x:Class="ArmyRoster.Activation.ActivationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArmyRoster.Activation"
+        mc:Ignorable="d"
+        Title="ActivationWindow" FontSize="20"  
+        Height="300" MinHeight="300" MaxHeight="300"  
+        Width="400" MinWidth="400" MaxWidth="400">
+    <StackPanel Orientation="Vertical">
+        <Label Content="Enter the activation key:" HorizontalAlignment="Center" Margin="10"/>
+        <TextBox x:Name="activTextBox" Margin="10" Width="250" Height="40"/>
+        <Button x:Name="activButton" Content="activate the key" Margin="10" Width="200" Height="40"/>
+        <Button x:Name="trialButton" Content="try the trial version" Margin="10" Width="200" Height="40"/>
+    </StackPanel>
+</Window>
+

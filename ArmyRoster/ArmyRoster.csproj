@@ -9,15 +9,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resource\abilities.png" />
+    <None Remove="Resource\composition.png" />
     <None Remove="Resource\CreateArmy.png" />
     <None Remove="Resource\Fon.png" />
+    <None Remove="Resource\invulnerablesave.png" />
+    <None Remove="Resource\invulnerablesavee.png" />
+    <None Remove="Resource\leader.png" />
+    <None Remove="Resource\meleeweapons.png" />
     <None Remove="Resource\MyArmy.png" />
+    <None Remove="Resource\rangeweapon.png" />
+    <None Remove="Resource\Uhlanor.png" />
+    <None Remove="Resource\wargear.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resource\abilities.png" />
+    <Resource Include="Resource\composition.png" />
     <Resource Include="Resource\CreateArmy.png" />
     <Resource Include="Resource\Fon.png" />
+    <Resource Include="Resource\invulnerablesavee.png" />
+    <Resource Include="Resource\leader.png" />
+    <Resource Include="Resource\meleeweapons.png" />
     <Resource Include="Resource\MyArmy.png" />
+    <Resource Include="Resource\rangeweapon.png" />
+    <Resource Include="Resource\Uhlanor.png" />
+    <Resource Include="Resource\wargear.png" />
   </ItemGroup>
 
 </Project>

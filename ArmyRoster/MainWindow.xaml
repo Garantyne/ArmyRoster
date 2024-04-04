@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="ArmyRoster" Height="650" Width="1000">
     <Grid>
-        
+        <Image Source="Resource/Fon.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
+        <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -16,12 +18,10 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Image Source="Resource/Fon.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="SlateGray" Click="newArmyButton_Click"/>
-        <Image Source="Resource/MyArmy.png" Grid.Column="0" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-        <Button x:Name="exit" Content="Выход" Margin="100,175,100,25" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="DarkKhaki"/>
-        <Image Source="Resource/Fon.png" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-        <Image Source="Resource/MyArmy.png" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-        <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,175,100,25" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="DarkKhaki"/>
+        
+        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Click="newArmyButton_Click" Foreground="DarkMagenta"/>
+            <Button x:Name="exit" Content="Выход" Margin="100,170,100,30" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Foreground="DarkMagenta"/>
+            <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,170,100,30" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Click="getListMyArmys_Click" Foreground="DarkMagenta"/>
+    </Grid>
     </Grid>
 </Window>

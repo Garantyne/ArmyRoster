@@ -10,7 +10,7 @@
         <Image Source="../Resource/CreateArmy.png" HorizontalAlignment="Stretch" Stretch="UniformToFill"/>
         <StackPanel>
             <TextBlock Text="Введите название армии" FontSize="35" Margin="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" HorizontalAlignment="Center" />
-            <TextBox Margin="10" FontSize="30" FontFamily="Monotype Corsiva" Height="70" Background="Transparent" Width="500"/>
+            <TextBox VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10" FontSize="40" FontFamily="Monotype Corsiva" Height="70" Background="Transparent" Width="500"/>
             <Button Content="Создать армию"  Margin="50" FontSize="30" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="SkyBlue" Width="300"/>
         </StackPanel>
     </Grid>

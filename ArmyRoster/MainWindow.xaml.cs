@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ArmyRoster.Forms;
+using ArmyRoster.Model;
+using ArmyRoster.Activation;
 
 namespace ArmyRoster
 {
@@ -17,16 +19,30 @@ namespace ArmyRoster
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Army> armyList = new List<Army>();
         public MainWindow()
         {
             InitializeComponent();
+            ShowActivationWindow();
+        }
+
+        private void ShowActivationWindow()
+        {
+            ActivationWindow actWin = new ActivationWindow();
+            actWin.Show();
         }
 
         private void newArmyButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateArmyForm createArmyForm = new CreateArmyForm();
+            CreateArmyForm createArmyForm = new CreateArmyForm(armyList);
             createArmyForm.ShowDialog();            
             
+        }
+
+        private void getListMyArmys_Click(object sender, RoutedEventArgs e)
+        {
+            ArmyListForm armyListForm = new ArmyListForm(armyList);
+            armyListForm.ShowDialog();
         }
     }
 }

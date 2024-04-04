@@ -1,5 +1,4 @@
-﻿using ArmyRoster.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ArmyRoster.Forms
+namespace ArmyRoster.Activation
 {
     /// <summary>
-    /// Логика взаимодействия для CreateArmyForm.xaml
+    /// Логика взаимодействия для ActivationWindow.xaml
     /// </summary>
-    public partial class CreateArmyForm : Window
+    public partial class ActivationWindow : Window
     {
-        List<Army> armyList;
-        public CreateArmyForm(List<Army> armyList)
+        public ActivationWindow()
         {
             InitializeComponent();
-            this.armyList = armyList;
         }
     }
 }
