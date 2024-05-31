@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using ArmyRoster.Forms;
 using ArmyRoster.Model;
 using ArmyRoster.Activation;
+using System.IO;
 
 namespace ArmyRoster
 {
@@ -19,11 +20,13 @@ namespace ArmyRoster
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Army> armyList = new List<Army>();
+        
+        List<string> listArmy = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
-            ShowActivationWindow();
+            //ShowActivationWindow();
+            ParseFile();
         }
 
         private void ShowActivationWindow()
@@ -33,15 +36,32 @@ namespace ArmyRoster
         }
 
         private void newArmyButton_Click(object sender, RoutedEventArgs e)
-        {
-            CreateArmyForm createArmyForm = new CreateArmyForm(armyList);
-            createArmyForm.ShowDialog();            
+        {            
+                     
             
+        }
+
+        private void ParseFile()
+        {
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;//получаем полное название родительской дирректории
+            string directoryPath = System.IO.Path.Combine(projectDirectory, "armyList");//заходим в папку арми лист где у нас данные по армиям хранятся
+            //тут сканим на наличие уже готовых армий
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+            else
+            {
+                foreach (var v in Directory.EnumerateFiles(directoryPath, "*.xlsx"))
+                {
+                    listArmy.Add(v);
+                }
+            }
         }
 
         private void getListMyArmys_Click(object sender, RoutedEventArgs e)
         {
-            ArmyListForm armyListForm = new ArmyListForm(armyList);
+            ArmyListForm armyListForm = new ArmyListForm(listArmy);
             armyListForm.ShowDialog();
         }
     }

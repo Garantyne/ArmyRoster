@@ -10,6 +10,8 @@ namespace ArmyRoster.Model
     {
         public string NameArmy {  get; set; }
         public string Path {  get; set; }
+
+        public List<UnitsW40K> Units { get; set; }
         public Army() { }
 
         public override string ToString()

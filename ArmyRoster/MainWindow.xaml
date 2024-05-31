@@ -19,9 +19,9 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Click="newArmyButton_Click" Foreground="DarkMagenta"/>
-            <Button x:Name="exit" Content="Выход" Margin="100,170,100,30" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Foreground="DarkMagenta"/>
-            <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,170,100,30" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Click="getListMyArmys_Click" Foreground="DarkMagenta"/>
+        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Click="newArmyButton_Click" Foreground="DarkMagenta"/>
+            <Button x:Name="exit" Content="Выход" Margin="100,170,100,30" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Foreground="DarkMagenta"/>
+            <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,170,100,30" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Click="getListMyArmys_Click" Foreground="DarkMagenta"/>
     </Grid>
     </Grid>
 </Window>

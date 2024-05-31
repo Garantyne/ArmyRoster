@@ -20,10 +20,10 @@
                 </StackPanel>
             </ScrollViewer>
             <StackPanel Grid.Column="1">
-                <TextBox x:Name="addArmyTextBox" Margin="10" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                <Button x:Name="addArmyButton" Content="Добавить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Margin="10" Height="50" Click="addArmyButton_Click"/>
-                <Button x:Name="deleteArmyButton" Content="Удалить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Margin="10" Height="50"/>
-                <Button x:Name="closeArmyButton" Content="Закрыть" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" Margin="10" Height="50" VerticalAlignment="Bottom"/>                
+                <TextBox x:Name="addArmyTextBox" Margin="10" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" BorderThickness="5" Foreground="DarkGreen"/>
+                <Button x:Name="addArmyButton" Content="Добавить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" Click="addArmyButton_Click" Foreground="DarkGreen"/>
+                <Button x:Name="deleteArmyButton" Content="Удалить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" Foreground="DarkGreen" Click="deleteArmyButton_Click"/>
+                <Button x:Name="closeArmyButton" Content="Закрыть" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" VerticalAlignment="Bottom" Foreground="DarkGreen" Click="closeArmyButton_Click"/>                
             </StackPanel>
         </Grid>
     </Grid>
