@@ -33,11 +33,7 @@ namespace ArmyRoster.Model
         public string Leader {  get; set; }
 
         public UnitInfoW40K() { }
-
-        public void Load()
-        {
-
-        }
+        
 
         public void Save(bool flag, string path, string name)
         {

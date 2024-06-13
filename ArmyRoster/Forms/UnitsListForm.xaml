@@ -19,8 +19,8 @@
 
             <StackPanel Grid.Column="1">
                 <TextBox  x:Name="unitNameTextBox" Height="40" FontSize="30" Background="Transparent"  Foreground="Aqua" BorderBrush="White" BorderThickness="3" TextAlignment="Center" VerticalAlignment="Center"/>
-                <Button x:Name="addUnitButton" Height="40" Content="Добавить юнит" FontSize="30" Click="addUnitButton_Click" FontFamily="Monotype Corsiva" />
-                <Button x:Name="deleteUnitButton" Height="40" Content="Удалить юнит" FontSize="30" Margin="0,10,0,0" FontFamily="Monotype Corsiva" Click="deleteUnitButton_Click" />
+                <Button x:Name="addUnitButton" ToolTip="Что бы добавить юнит введите его имя в поле для ввода и кликнете по кнопке 'Добавить юнит'" Height="40" Content="Добавить юнит" FontSize="30" Click="addUnitButton_Click" FontFamily="Monotype Corsiva" />
+                <Button x:Name="deleteUnitButton" ToolTip="Что бы удалить юнит введите его имя в поле ввода и кликните по кнопке 'Удалить юнит'" Height="40" Content="Удалить юнит" FontSize="30" Margin="0,10,0,0" FontFamily="Monotype Corsiva" Click="deleteUnitButton_Click" />
                 <Button x:Name="closeButton" Height="40" Content="Закрыть" FontSize="30" Margin="0,10,0,0" FontFamily="Monotype Corsiva" Click="closeButton_Click" />
             </StackPanel>
 

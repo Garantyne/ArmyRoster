@@ -79,6 +79,7 @@ namespace ArmyRoster.Forms
                     ((RichTextBox)interfaceElementsRichTextBox[j++]).AppendText(value1 != null ? value1.ToString() : " - ");
                 }
             }
+            
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -106,6 +107,7 @@ namespace ArmyRoster.Forms
                 Leader = new TextRange(leaderTextBox.Document.ContentStart, leaderTextBox.Document.ContentEnd).Text,
             };
             info.Save((bool)commandCheckBox.IsChecked, filePath ,Title);
+            MessageBox.Show($"Юнит {Name} успешно сохранен", "СОхранение", MessageBoxButton.OK);
         }
     }
 }

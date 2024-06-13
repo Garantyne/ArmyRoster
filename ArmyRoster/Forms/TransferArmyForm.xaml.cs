@@ -19,10 +19,10 @@ namespace ArmyRoster.Forms
     /// <summary>
     /// Логика взаимодействия для CreateArmyForm.xaml
     /// </summary>
-    public partial class CreateArmyForm : Window
+    public partial class ArmyTransferForm : Window
     {
         List<Army> armyList;
-        public CreateArmyForm(List<Army> armyList)
+        public ArmyTransferForm(List<Army> armyList)
         {
             InitializeComponent();
             this.armyList = armyList;

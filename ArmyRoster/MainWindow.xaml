@@ -7,21 +7,26 @@
         mc:Ignorable="d"
         Title="ArmyRoster" Height="650" Width="1000">
     <Grid>
-        <Image Source="Resource/Fon.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"/>
-        <Grid>
+        <Image Source="Resource/MyArmy.png" HorizontalAlignment="Stretch" Stretch="UniformToFill" Grid.IsSharedSizeScope="False"/>
+        <Grid x:Name="gridArmyList">
 
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        
-        <Button x:Name="newArmyButton" Content="Создать новую армию" Margin="100,175,100,25" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Click="newArmyButton_Click" Foreground="DarkMagenta"/>
-            <Button x:Name="exit" Content="Выход" Margin="100,170,100,30" FontSize="25" Grid.Column="0" Grid.Row="1" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Foreground="DarkMagenta"/>
-            <Button x:Name="getListMyArmys" Content="Список армий" Margin="100,170,100,30" FontSize="25" Grid.Column="1" Grid.Row="0" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Black" Click="getListMyArmys_Click" Foreground="DarkMagenta"/>
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="157*" x:Name="columnDif1"/>
+                <ColumnDefinition Width="43*" x:Name="columnDif2"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel  x:Name="stackPanel1"  Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center"  >
+
+                </StackPanel>
+            </ScrollViewer>
+            <StackPanel Grid.Column="1">
+                <TextBox x:Name="addArmyTextBox" Margin="10" FontSize="25" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Transparent" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" BorderThickness="5" Foreground="DarkGreen"/>
+                <Button x:Name="addArmyButton" ToolTip="ЧТо бы добавить армию введите ее название в поле для ввода и кликните по кнопке 'Добавить армию'" Content="Добавить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" Click="addArmyButton_Click" Foreground="DarkGreen"/>
+                <Button x:Name="deleteArmyButton" ToolTip="Для удаление армии введите ее название в поле для ввода и кликните по кнопке 'Удалить армию' " Content="Удалить армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" Foreground="DarkGreen" Click="deleteArmyButton_Click"/>
+                <Button x:Name="transferArmyButton" ToolTip="Для передачи армии своему сопартийцу через интернет соединение кликните по кнопке 'Передать армию' " Content="Передать армию" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" Foreground="DarkGreen" Click="transferArmyButton_Click"/>
+                <Button x:Name="exitArmyButton" Content="Выход" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Height="50" VerticalAlignment="Bottom" Foreground="DarkGreen" Click="exitArmyButton_Click"/>
+                <Button x:Name="infoArmyButton" Content="инфо" FontSize="20" FontFamily="Monotype Corsiva" FontWeight="ExtraBlack" Background="Azure" Margin="10" Width="70" Height="50" VerticalAlignment="Bottom" Foreground="DarkGreen" Opacity="0.5" Click="infoArmyButton_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
