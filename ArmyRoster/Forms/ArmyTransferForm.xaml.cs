@@ -71,10 +71,16 @@ namespace ArmyRoster.Forms
                     IPEndPoint endpoint = new IPEndPoint(ip, int.Parse(portTextBox.Text));
                     try
                     {
-                        socket.Connect(endpoint);
+                        await socket.ConnectAsync(endpoint);
                         if (socket.Connected)
                         {
-                            socket.Send(arm);
+                            // Предполагаем, что arm - это массив байтов, содержащий данные файла
+                            // Сначала отправляем размер файла
+                            byte[] sizeInfo = BitConverter.GetBytes(arm.Length);
+                            await socket.SendAsync(sizeInfo, SocketFlags.None);
+
+                            // Затем отправляем сам файл
+                            await socket.SendAsync(arm, SocketFlags.None);
                         }
                         else
                         {
@@ -119,10 +125,10 @@ namespace ArmyRoster.Forms
                             while (totalRead < fileSize)
                             {
                                 int read = await ns.ReceiveAsync(new ArraySegment<byte>(fileData, totalRead, fileSize - totalRead), SocketFlags.None);
-                                if (read == 0)
+                                /*if (read == 0)
                                 {
                                     throw new Exception("Соединение закрыто до окончания передачи файла.");
-                                }
+                                }*/
                                 totalRead += read;
                             }
 
