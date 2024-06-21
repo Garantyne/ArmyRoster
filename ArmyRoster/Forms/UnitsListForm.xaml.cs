@@ -18,6 +18,7 @@ using Spire.Xls;
 using System.Data;
 using System.IO;
 using Aspose.Cells;
+using ArmyRoster.Service;
 
 namespace ArmyRoster.Forms
 {
@@ -26,10 +27,10 @@ namespace ArmyRoster.Forms
     /// </summary>
     public partial class UnitsListForm : Window
     {
-        List<Button>listButton = new List<Button>();
-        List<string> armyList;
-        Aspose.Cells.Workbook workbook;
-        string filePath;
+        private List<Button>listButton = new List<Button>();
+        private List<string> armyList;
+        private Aspose.Cells.Workbook workbook;
+        private string filePath;
         private Army army;
         public UnitsListForm(List<string> armyList, string Name, Army army)
         {
@@ -103,7 +104,7 @@ namespace ArmyRoster.Forms
             }
         }
 
-        private void selectArmy_Click(object sender, RoutedEventArgs e)
+        public void selectArmy_Click(object sender, RoutedEventArgs e)
         {
             
             UnitInfoForm unitInfoForm = new UnitInfoForm(armyList,
@@ -121,6 +122,7 @@ namespace ArmyRoster.Forms
 
         private void deleteUnitButton_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Aspose.Cells.Worksheet sheet = workbook.Worksheets[0];
             for (int i = 0, j = i; i < stackPanel1.Children.Count; i++, j = i)
             {
@@ -150,6 +152,16 @@ namespace ArmyRoster.Forms
                 {
                     MessageBox.Show($"Юнит с именем {unitNameTextBox.Text} небыл найден");
                 }
+            
+            }*/
+            if (UnitListFormService.delete(workbook, stackPanel1, unitNameTextBox.Text, listButton, filePath))
+            {
+                MessageBox.Show($"Юнит {unitNameTextBox.Text} успешно удален");
+            }
+            else
+            {
+
+                MessageBox.Show($"Юнит с именем {unitNameTextBox.Text} небыл найден");
             }
         }
     }
