@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArmyRoster.Service;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,9 +26,11 @@ namespace ArmyRoster.Forms
         public ArmyTransferForm()
         {
             InitializeComponent();
+            service = new TransferService();
         }
         private byte[] arm;
         private bool is_Transfer = false;
+        private TransferService service;
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +53,7 @@ namespace ArmyRoster.Forms
                 string path = dialog.FileName;
                 if (path != null)
                 {
-                    arm = File.ReadAllBytes(path);
+                    service.SelectArmy(ref arm, path);
                 }
                 else
                 {
@@ -65,90 +68,29 @@ namespace ArmyRoster.Forms
             is_Transfer = !is_Transfer;
             if (is_Transfer)
             {
-                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
+                if (await service.TransferArmy(ipTextBox.Text, portTextBox.Text, arm))
                 {
-                    IPAddress ip = IPAddress.Parse(ipTextBox.Text);
-                    IPEndPoint endpoint = new IPEndPoint(ip, int.Parse(portTextBox.Text));
-                    try
-                    {
-                        await socket.ConnectAsync(endpoint);
-                        if (socket.Connected)
-                        {
-                            // Предполагаем, что arm - это массив байтов, содержащий данные файла
-                            // Сначала отправляем размер файла
-                            byte[] sizeInfo = BitConverter.GetBytes(arm.Length);
-                            await socket.SendAsync(sizeInfo, SocketFlags.None);
 
-                            // Затем отправляем сам файл
-                            await socket.SendAsync(arm, SocketFlags.None);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ошибка соединения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка соединения", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+       
 
         private async void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            is_Transfer = !is_Transfer;
-            if (is_Transfer)
+            if(await service.SummonArmy(ipTextBox.Text, portTextBox.Text))
             {
-                using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
-                {
-                    IPAddress ip = IPAddress.Parse(ipTextBox.Text);
-                    IPEndPoint endpoint = new IPEndPoint(ip, int.Parse(portTextBox.Text));
 
-                    socket.Bind(endpoint);
-                    socket.Listen(2);
-
-                    try
-                    {
-                        using (Socket ns = await socket.AcceptAsync())
-                        {
-                            Console.WriteLine(ns.RemoteEndPoint.ToString());
-
-                            // Получаем размер файла
-                            byte[] sizeInfo = new byte[4];
-                            await ns.ReceiveAsync(sizeInfo, SocketFlags.None);
-                            int fileSize = BitConverter.ToInt32(sizeInfo, 0);
-
-                            // Читаем содержимое файла из сокета
-                            byte[] fileData = new byte[fileSize];
-                            int totalRead = 0;
-                            while (totalRead < fileSize)
-                            {
-                                int read = await ns.ReceiveAsync(new ArraySegment<byte>(fileData, totalRead, fileSize - totalRead), SocketFlags.None);
-                                /*if (read == 0)
-                                {
-                                    throw new Exception("Соединение закрыто до окончания передачи файла.");
-                                }*/
-                                totalRead += read;
-                            }
-
-                            var dialog = new Microsoft.Win32.SaveFileDialog();
-                            if (dialog.ShowDialog() == true) // Исправлено с DialogResult на true
-                            {
-                                // Сохраняем файл
-                                File.WriteAllBytes(dialog.FileName, fileData);
-                            }
-
-                            ns.Shutdown(SocketShutdown.Both);
-                            ns.Close();
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
+            }
+            else
+            {
+                MessageBox.Show("Ошибка соединения! Не удалось принять армию", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

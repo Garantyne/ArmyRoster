@@ -62,9 +62,8 @@ namespace ArmyRoster.Forms
 
             // Получение количества строк в первом столбце
             int rowCount = worksheet.Cells.MaxDataRow + 1;
-
             
-                // Чтение содержимого первой ячейки (A)
+            // Чтение содержимого первой ячейки (A)
             Cell cell = worksheet.Cells[indexOfunit, 1];
             for(int i = 1,  j = 0; i < 21; i++)
             {

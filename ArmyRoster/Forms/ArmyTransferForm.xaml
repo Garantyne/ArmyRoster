@@ -9,7 +9,7 @@
     <Grid>
         <Image Source="../Resource/CreateArmy.png" HorizontalAlignment="Stretch" Stretch="UniformToFill"/>
 
-        <Grid>
+        <Grid Cursor="">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
